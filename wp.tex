@@ -74,74 +74,64 @@
 % \onehalfspace
 
 \section{Introduction}
-The realm of cryptocurrency has been rapidly expanding with new projects.
-A critical element for the success of these projects is the effective distribution of tokens, often through
-airdrops, to build and maintain community engagement. This white paper introduces 
-a new platform that automates token distribution, enhances security, and 
-fosters authentic community growth.
 
-Token distribution is an integral part of cryptocurrency projects, providing a mechanism 
-for allocating digital assets to various stakeholders, including investors, team members, and users.
- Over the years, the methods and models of 
-token distribution has evolved, reflecting the changing landscape of the 
-cryptocurrency industry and its growing complexity. 
+The rapidly expanding cryptocurrency sector relies heavily on effective token distribution,
+crucial for engaging and maintaining community support. This white paper introduces an innovative 
+platform designed to optimize token distribution processes, enhance security, and foster authentic 
+community growth. Token distribution, essential for allocating digital assets to stakeholders like investors, 
+team members, and users, has evolved to reflect the dynamic and complex nature of the cryptocurrency world.
 
 \begin{description}
   \item[Initial Coin Offerings (ICOs)]
-  Starting around 2013, ICOs emerged as a popular method for crypto projects to raise funds.
-  Investors would contribute, typically in Bitcoin, to early developers in exchange for 
-  tokens at network launch. This method saw massive popularity, with projects 
+  Since their emergence in 2013, Initial Coin Offerings (ICOs) have become a favored funding 
+  method for crypto projects. Investors contribute assets such as Bitcoin to early developers, 
+  receiving tokens in return at the network's launch. This method gained popularity with major projects 
   like Ethereum raising significant funds through ICOs.
 
   \item[Venture Capital Investment]
-  Another traditional method involves venture capitalist firms investing 
-  in crypto startups by purchasing their tokens. This model differs from 
-  traditional venture capital as it focuses on token acquisition rather than company equity.
+  In this traditional approach, venture capitalist firms invest in crypto startups by 
+  purchasing their tokens, distinct from typical venture capital which focuses on acquiring company equity.
 
   \item[Airdrops]
-  Airdrops have been used as a marketing strategy to distribute a small number of tokens 
-  to users' digital wallets. This approach helps in creating awareness about the project 
-  and fostering a network effect.
+  Airdrops are utilized as a marketing tool to distribute a limited number of 
+  tokens directly to user wallets. This strategy is instrumental in increasing awareness 
+  of the project and building a network effect.
 
   \item[Lockdrops]
-  Lockdrops are a unique distribution process where users lock up their existing 
-  tokens for a certain period before the launch of a new cryptocurrency project. 
-  This model relies on the commitment of participants to the success of the new project.
+  Lockdrops are an innovative distribution method where users temporarily lock up their existing 
+  tokens before the introduction of a new cryptocurrency. This model is based on the participants' 
+  commitment to the new project's success.
 
   \item[Public Sales]
-  This includes methods like Initial Exchange Offerings (IEOs) and Initial DEX Offerings (IDOs), 
-  where tokens are introduced to the market via exchanges, offering a decentralized approach 
-  to token distribution.
+  This category encompasses methods like Initial Exchange Offerings (IEOs) and Initial DEX Offerings
+  (IDOs). Here, tokens are released into the market through exchanges, offering a decentralized way 
+  of distributing tokens.
 \end{description}
 
 
 \section{Challanges}
 
-In the dynamic world of cryptocurrency projects, the deployment of token vesting schedules 
-is a critical aspect that demands careful consideration. Vesting schedules, once encoded 
-into smart contracts, become immutable. While this immutability serves the purpose 
-of ensuring transparency and trust, it also introduces a layer of rigidity that can 
-be challenging, particularly for projects whose roadmaps are still evolving.
-
+In the ever-evolving landscape of cryptocurrency ventures, the implementation of token vesting schedules is a crucial factor that requires 
+thoughtful planning. Once these schedules are embedded in smart contracts, they become permanent. 
+This permanence guarantees transparency and fosters trust, but it also adds a degree of inflexibility.
+This can be particularly problematic for projects that are still refining their strategies.
 
 \begin{description}
-  \item[Inflexibility to Project Evolution]
-  In the early, often changing phases of cryptocurrency projects, the unchangeable nature
-   of vesting schedules in smart contracts can 
-  lead to a misalignment between evolving project needs and set token distribution plans.
+  \item[Challenges to Project Adaptability]
+  In the early and frequently changing stages of cryptocurrency projects, the unalterable nature 
+  of vesting schedules fixed in smart contracts can cause a disconnect. This misalignment happens 
+  between the project's evolving needs and the predetermined plans for token distribution.
 
-  \item[Impact on Stakeholder Trust and Project Perception]
-  Stakeholders' trust can be significantly impacted if the project's direction shifts 
-  substantially after the airdrop or initial distribution. Immutable schedules can
-  leave stakeholders feeling disadvantaged, potentially affecting their ongoing
-  support and trust in the project.
+  \item[Confidence]
+  Stakeholder trust can be deeply affected if there are significant changes in the project's direction
+  after the initial token distribution or airdrop. Unchangeable vesting schedules might leave stakeholders 
+  feeling unfairly treated, which can impact their continued support and confidence in the project.
 
-  \item[Operational and Strategic Constraints]
-  Fixed vesting schedules can limit the project team's ability to make 
-  strategic adjustments. This includes altering the project scope, 
-  extending development timelines or pivoting the project strategy 
-  in response to market feedback, technological advances, or 
-  changes in the project's ecosystem.
+  \item[Operational and Strategic Flexibility]
+  Rigid vesting schedules can restrict the project team's capability to adjust strategies. 
+  This limitation affects various aspects such as modifying the project's scope, extending development 
+  timelines, or shifting the project's strategy in response to market feedback, technological developments, 
+  or shifts in the project's ecosystem.
 \end{description}
 
 
@@ -162,11 +152,14 @@ Keynotes from the process flow:
 \begin{enumerate}
   \item \textbf{Token Allocation by Company:} The starting point where the company determines and allocates tokens.
   \item \textbf{Wallet Verification:} Users undergo a verification process to ensure uniqueness. 
-  Uniqueness must satisfy only proof of \textbf{one user} == \textbf{one wallet} and not aim to reveal users' identities. 
-  \item \textbf{Provision:} Users claim their tokens, resulting in the assignment of 'provisional' tokens. Such tokens signifying a placeholder for future tokens and just exists on user wallets as a slots.
-  \item \textbf{Materialization:} The provisional tokens are materialized into actual tokens. Materialization means a linkage them from a placeholder contract 
-  to a real smart contract, embedding business logic such as vesting and other features. 
-  By it's nature this process follow the intuition of \href{https://en.wikipedia.org/wiki/Late_binding} that is well known concept in software development. 
+  Uniqueness must satisfy only proof of \textbf{one user} == \textbf{one wallet} and not aim to 
+  reveal users’ identities.
+  \item \textbf{Provision:} Users claim their tokens, resulting in the assignment of ’provisional’ tokens. Such tokens signify a placeholder for future
+  and just exist on user wallets as slots.
+  \item \textbf{Materialization:} The provisional tokens are materialized into actual tokens. Materialization 
+  means linking them from a placeholder contract to a real smart contract, embedding business 
+  logic such as vesting and other features. By its nature, this process follows the intuition 
+  of \href{https://en.wikipedia.org/wiki/Late_binding} a well-known concept in software development. 
   \item \textbf{Distribution:} The actual tokens are then distributed to the end users.
 \end{enumerate}
 
@@ -250,6 +243,10 @@ The most important \href{https://en.wikipedia.org/wiki/Non-functional_requiremen
   is crucial for both the users and the company. 
   Optimizing smart contract execution and considering gas-efficient 
   algorithms are important in this regard.
+
+  \item[Flexibility]
+  System must satisfy main needs of crypto projects in 2 dimentions: 
+  token governance and community management.
 
   \item[XXX]
   to be written...
