@@ -1,4 +1,3 @@
-<!-- <img src="https://....../logo.svg" width="64px" height="64px"/> -->
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/mkdrop-io/white-paper/blob/master/LICENSE.txt)
 
