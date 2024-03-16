@@ -16,17 +16,28 @@ error() {
   exit 1
 }
 
+
+
 # install git on old images
 if ! command -v git &>/dev/null; then
   apk --no-cache add git
 fi
 git config --system --add safe.directory "$GITHUB_WORKSPACE"
 
-if [[ -z "$INPUT_ROOT_FILE" ]]; then
-  error "Input 'root_file' is missing."
+
+
+# Check if the input file argument is provided
+if [[ $# -lt 1 ]]; then
+  error "Input file is missing. Please provide the input file as the first argument."
 fi
 
-readarray -t root_file <<<"$INPUT_ROOT_FILE"
+root_file="$1"
+
+if [[ ! -f "$root_file" ]]; then
+  error "Input file '$root_file' does not exist."
+fi
+
+# readarray -t root_file <<<"$INPUT_ROOT_FILE"
 
 if [[ -n "$INPUT_WORKING_DIRECTORY" ]]; then
   if [[ ! -d "$INPUT_WORKING_DIRECTORY" ]]; then

@@ -258,34 +258,97 @@ There are many other essential features required, including
 
 \section{Architecture}
 
-Architecure is consisted of 4 essential parts:
+Architecure is consisted of several essential parts:
 
-% \begin{enumerate}
-% 	\item HTTP layer
-%         \item Authorization and authentication layer
-% 	\item Repositories
-% 	\item Storage
-% \end{enumerate}
-% \begin{tikzpicture}
-%   \node[block] (repo-2) {Repo};
-%   \node[block, left=of repo-2] (repo-1) {Repo};
-%   \node[block, right=of repo-2] (repo-3) {Repo};
-%   \node[fit=(repo-1)(repo-2)(repo-3), draw, dashed, inner sep=1cm, label={[right=10cm, below=0.1cm]1cm:Repositories}] (repos) {};
-%   \node[block, above=of repos, minimum width=7cm] (auth) {authentication};
-%   \node[block, above=of auth, minimum width=7cm] (http) {HTTP layer, routing and dispatching};
-%   \node[block, below=of repo-1] (storage-1) {Storage};
-%   \node[block, below=of repo-2] (storage-2) {Storage};
-%   \node[block, below=of repo-3] (storage-3) {Storage};
-%   \path[ln] (repo-1) -- (storage-1);
-%   \path[ln] (repo-2) -- (storage-2);
-%   \path[ln] (repo-3) -- (storage-3);
-%   \path[ln] (http) -- (auth);
-%   \path[ln] (auth) edge node {routes} (repos);
-%   \draw (repos.north) -- (repo-1.north);
-%   \draw (repos.north) -- (repo-2.north);
-%   \draw (repos.north) -- (repo-3.north);
-% \end{tikzpicture}
+\begin{description}
+  \item[Hand Print] 
+  Hand prints are used to ensure each user's device is unique. This method involves checking unique features of a user's device to prevent multiple accounts or duplications. It's a reliable way to make sure every device is linked to a specific user, which is crucial for securing access to web3 wallets and transactions. 
+  
+  \begin{enumerate}
+      \item \textbf{Multi-Factor Authentication (MFA)}: MFA adds layers of security by requiring different forms of verification, such as passwords, devices, or biometric data.
+      \item \textbf{Passkeys}: Passkeys replace traditional passwords with device-specific keys, increasing security by keeping sensitive data off the network.
+      \item \textbf{One-Time Passwords (OTP)}: OTPs are temporary codes sent to a user's device, adding an extra step of verification to ensure the person accessing the account is the legitimate owner.
+  \end{enumerate}  
 
+  \item[Provision]
+  The Provision process in our system takes place off-chain, ensuring
+  efficient and cost-effective operation. It starts when a user generates a unique proof of
+  device identity and submits this data to an Oracle. The Oracle's key role is to verify this uniqueness 
+  against a nullifier, a mechanism to ensure that each proof is distinct and hasn't been used before. 
+  If the proof is indeed unique, the Oracle generates provision codes, which are essentially tokens allocated 
+  to the user. These provision tokens are stored within the Oracle, making the process gas-free since it doesn't require
+  on-chain transactions. This approach not only enhances efficiency but also significantly reduces costs associated with
+  on-chain operations, making it an ideal solution for scalable and user-friendly web3 applications before airdrop activity.
+
+  \item[Nullifier]
+  A nullifier in our system is a cryptographic marker used to 
+  prevent duplicate claims or actions. When a user claims a token,
+  the system generates a unique nullifier as SHA-256 from a hand-print proof. When a user claims a token, their proof is hashed and added to the Merkle tree.
+  This ensures each action, like a token claim, is unique and not repeatable,
+  maintaining  the system's integrity and preventing fraud. 
+  It's a key element for user privacy and security, allowing action verification without revealing user identities.
+
+  \item[Provision]
+  The Provision process offers an innovative approach for companies to initiate token-related activities without needing an existing ERC-20 coin. 
+  This method enables the creation of provisional tokens, 
+  which act as placeholders for future real tokens. It's particularly useful for companies in the early stages of their project, allowing them to engage in 
+  activities like community incentives or preliminary token distribution, with the actual ERC-20 tokens to be issued later on. Provision thus offers flexibility and agility in
+  managing token-based operations, even before the official minting of ERC-20 coins.
+
+  \item[Allocate]
+  The Allocate process allows companies to fund 
+  their activities by transferring ERC-20 tokens to the 
+  Budget Golem contract. This straightforward method 
+  centralizes company tokens in one contract, streamlining 
+  the management of token-based operations like airdrops or incentives.
+  This approach can be treated as Later Binding when provision slots of Airdrop are linked with real contracts that encapsulate tokenomic, casting, and other specifics.
+\end{description}
+
+
+
+\begin{tikzpicture}[
+    block/.style={rectangle, draw, text width=3cm, align=center, minimum height=1cm},
+    line/.style={draw, -Latex}
+  ]
+
+  % Define actor
+  \node[circle, draw] (actor) {Actor};
+
+  % Define app block
+  \node[block, right=of actor] (app) {App};
+
+  % Define nullifier and oracle blocks
+  \node[block, above right=of app] (nullifier) {NULLIFIER};
+  \node[block, below right=of app] (oracle) {ORACLE};
+
+  % Define ERC-20 related blocks
+  % \node[block, below=of oracle] (erc20) {ERC-20 Budget};
+  \node[block, dashed, below=of oracle] (companyA) {Company A Balance};
+  \node[block, dashed, below=of companyA] (companyB) {Company B Balance};
+  \node[fit=(companyA)(companyB), draw, inner sep=0.3cm] (erc20) {ERC 20 Budget};
+
+  % Define Inputs
+  \node[block, left=4cm of companyA] (companyACoin) {Company A};
+  \node[block, left=4cm of companyB] (companyB_ERC20) {ERC-20 Coin};
+  \node[block, below=of companyB_ERC20] (compnayBCoin) {Company B};
+
+
+  % Draw lines
+  \draw[line] (actor) -- (app);
+  \draw[line] (app) |- (nullifier) node[midway, above] {HAND-PRINT};
+  \draw[line] (app) |- (oracle) node[midway, left] {PROVISION};
+  \draw[line] (oracle) -- (nullifier) node[midway, right] {CHECK};
+  \draw[line] (erc20) -- (oracle) node[midway, right] {VERIFY};
+
+  \draw[line] (companyACoin) -- (companyA) node[midway, above] {PROVISION};
+  \draw[line] (companyB_ERC20) -- (companyB) node[midway, above] {ALLOCATE};
+  \draw[line] (compnayBCoin) -- (companyB_ERC20) node[midway, left] {DEPLOY};
+  
+  % ... additional lines and nodes based on the provided image ...
+
+\end{tikzpicture}
+
+\end{document}
 
 \subsection{Extensions}
 to be written...
