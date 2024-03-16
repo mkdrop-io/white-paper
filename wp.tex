@@ -305,7 +305,8 @@ Architecure is consisted of several essential parts:
 \end{description}
 
 
-
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}[
     block/.style={rectangle, draw, text width=3cm, align=center, minimum height=1cm},
     line/.style={draw, -Latex}
@@ -344,9 +345,10 @@ Architecure is consisted of several essential parts:
   \draw[line] (companyB_ERC20) -- (companyB) node[midway, above] {ALLOCATE};
   \draw[line] (compnayBCoin) -- (companyB_ERC20) node[midway, left] {DEPLOY};
   
-  % ... additional lines and nodes based on the provided image ...
-
 \end{tikzpicture}
+\caption{Architecture Overview}
+\label{fig:arch}
+\end{figure}
 
 \end{document}
 
