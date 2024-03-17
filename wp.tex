@@ -62,13 +62,11 @@
 
 \maketitle
 \begin{abstract}
-  In the rapidly evolving landscape of cryptocurrency, the distribution of tokens, 
-  particularly through airdrops, plays a pivotal role in project promotion 
-  and community engagement. However, the current methods for token distribution 
-  are fraught with challenges like high transaction costs, security risks, and 
-  inefficient processes. This white paper proposes a novel platform designed to 
-  streamline and secure the process of token distribution while maintaining the 
-  anonymity characteristic of the crypto world.
+  In the rapidly evolving landscape of cryptocurrency, the distribution of tokens, particularly through airdrops, 
+  plays a pivotal role in project promotion and community engagement. However, the current methods for token 
+  distribution   are fraught with challenges like high transaction costs, security risks, and inefficient processes. 
+  This white paper proposes a novel platform designed to streamline and secure the process of token distribution 
+  while maintaining the anonymity characteristic of the post crypto world.
 \end{abstract}
 
 % \onehalfspace
@@ -111,10 +109,10 @@ team members, and users, has evolved to reflect the dynamic and complex nature o
 
 \section{Challanges}
 
-In the ever-evolving landscape of cryptocurrency ventures, the implementation of token vesting schedules is a crucial factor that requires 
-thoughtful planning. Once these schedules are embedded in smart contracts, they become permanent. 
-This permanence guarantees transparency and fosters trust, but it also adds a degree of inflexibility.
-This can be particularly problematic for projects that are still refining their strategies.
+In the ever-evolving landscape of cryptocurrency ventures, the implementation of token vesting schedules is 
+a crucial factor that requires thoughtful planning. Once these schedules are embedded in smart contracts, 
+they become permanent. This permanence guarantees transparency and fosters trust, but it also adds a degree 
+of inflexibility. This can be particularly problematic for projects that are still refining their strategies.
 
 \begin{description}
   \item[Challenges to Project Adaptability]
@@ -137,8 +135,8 @@ This can be particularly problematic for projects that are still refining their 
 
 \section{Solution}
 
-The "Provisional Token Allocation" approach involves initially reserving tokens 
-for users without directly allocating them to their wallets. 
+The "Provisional Token Allocation" approach involves initially reserving tokens for users without 
+directly allocating them to their wallets. 
 
 Instead, users are provided with placeholders or "slots" representing their entitlement to tokens. 
 These slots remain provisional until certain criteria or milestones are met, at which point 
@@ -194,9 +192,18 @@ Keynotes from the process flow:
 \section{Requirements}
 \label{sec:requirements}
 
-Token desctribution at this moment solvels in a different ways: .......
-Even though each of them partially solvesl described issues, neither one is perfect.
+Token desctribution at this moment solvels in a traditional approach is applied where the token's smart-contract integrates 
+with a specific distribution smart contract, often referred to as a vesting contract. This contract has the authority to manage 
+the token issuance and introduces vestings and locks at the code level. However, altering the conditions of vestings requires 
+redeploying the contract, which can make the transaction more costly due to the complex logic. Despite this, there are other 
+intricate ways to manage the distribution:
+\item [1.] Custodial Solutions: Centralized services like crypto exchanges or custodians can offer tools for handling airdrop vesting 
+on behalf of projects. They handle the storage and gradual distribution of tokens based on a predetermined schedule.
 
+\item[2.] Multisignature Wallets: These wallets, which require multiple signatures for transactions, can be used to control the token 
+release during vesting. It's a decentralized method, allowing several parties to manage the process together.
+
+Even though each of them partially solvesl described issues, neither one is perfect.
 \subsection{Features}
 \label{sec:features}
 
