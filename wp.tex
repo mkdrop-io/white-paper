@@ -192,49 +192,36 @@ Keynotes from the process flow:
 \section{Requirements}
 \label{sec:requirements}
 
-Token desctribution at this moment solvels in a traditional approach is applied where the token's smart-contract integrates 
-with a specific distribution smart contract, often referred to as a vesting contract. This contract has the authority to manage 
-the token issuance and introduces vestings and locks at the code level. However, altering the conditions of vestings requires 
-redeploying the contract, which can make the transaction more costly due to the complex logic. Despite this, there are other 
-intricate ways to manage the distribution:
-\item[1] Custodial Solutions: Centralized services like crypto exchanges or custodians can offer tools for handling airdrop vesting 
-on behalf of projects. They handle the storage and gradual distribution of tokens based on a predetermined schedule.
+Token distribution, traditionally solved through specific smart contracts for distribution or vesting, often involves complex and costly alterations due to code-level 
+vesting and locking. However, alternative distribution methods exist:
+\begin{itemize}
+  \item Custodial Solutions: Centralized entities like crypto exchanges handle airdrop vesting, managing token storage and distribution.
+  \item Multisignature Wallets: These wallets require multiple approvals for transactions, offering a decentralized approach to managing vesting.
+\end{itemize}
+Each method addresses certain issues but has limitations.
 
-\item[2] Multisignature Wallets: These wallets, which require multiple signatures for transactions, can be used to control the token 
-release during vesting. It's a decentralized method, allowing several parties to manage the process together.
-
-Even though each of them partially solvesl described issues, neither one is perfect.
 \subsection{Features}
 \label{sec:features}
 
-There are many important qualities and features cryptocomunity expects a airdrop platform to have,
-in order to be useful the web3 ecosystem. The most critical \href{https://en.wikipedia.org/wiki/Functional_requirement}{functional requirements}
-are:
+The crypto community expects an airdrop platform to exhibit
+several key qualities and features. The most crucial functional
+requirements are:
 
 \begin{description}
-  \item[XXXXXX]
-  Every user can create a claim token without needing to install any application on their phone. This token allows them to request airdrops from 
-  projects without conducting on-chain transactions. The claim token is a hashed digital hardware fingerprint of the device and does not contain 
-  any personal data of the user. The technology used to generate a Claim-token ensures that the fingerprint is created on the device itself, 
-  rather than being programmatically generated.
+  \item[Claim Token Creation]
+  Users can create a claim token directly on their devices, enabling airdrop requests without on-chain transactions. This token, a hashed hardware fingerprint, is generated on-device and contains no personal data.
 
-  \item[XXXXXX]
-  Using a digital fingerprint, a user can create an anonymous digital profile. This profile allows the integration of existing social networks and 
-  management of subscriptions to other users. It enables tracking of new content drops and completion of subscription quests. With just one click, 
-  users can connect with social networks and the project community.
+  \item[Digital Profile]
+  Utilizing the digital fingerprint, users can create anonymous profiles for social network integration and subscription management, facilitating community interaction.
 
-  \item[XXXXXX]
-  The human-proof approach is used in the process of generating backup codes or restoring a claim-token to protect against artificially created 
-  identities. The backup code allows you to transfer your token and profile to another device.
+  \item[Human-Proof Approach]
+  To counter artificial identities, backup codes or claim-token restoration processes incorporate human verification, enabling token and profile transfers between devices.
 
-  \item[XXXXXX]
-  For token holders and advertising companies, the system provides a secure means of token or crypto asset distribution through asset provisioning. 
-  This mechanism ensures secure binding of distribution for future use and allows flexible changes in vesting conditions or coin operation logic.
+  \item[Asset Provisioning]
+  The platform provides a mechanism for secure token or crypto asset distribution, facilitating flexible adjustments in vesting conditions or coin operations.
 
-  \item[XXXXXX]
-  The platform offers a safe and easy solution for automating token flow. It enables the creation of quest logic or activities for community members,
-  eliminating the need to manage token distribution manually. This greatly reduces the costs associated with maintaining community management 
-  departments within a project.
+  \item[Token Flow Automation]
+  Automating token distribution reduces manual involvement, significantly lowering operational costs associated with community management.
 \end{description}
 
 \subsection{Non-functional Requirements}
@@ -369,12 +356,24 @@ Architecure is consisted of several essential parts:
 \end{document}
 
 \subsection{Extensions}
-to be written...
+This document aims to outline a solution that revolutionizes 
+the distribution of coins within the web3 framework. We're seeking 
+to develop an innovative system that not only simplifies the process 
+of token distribution but also addresses the inherent challenges of the 
+current methodologies, such as cost inefficiency, 
+lack of flexibility, and complex management requirements. 
+
+Moreover, make destribution of a fee tokens 
 
 \section{Conclusion}
 \label{sec:conclusion}
 
 To be written...
+
+\subsection{Acknowledgements}
+\label{sec:ack}
+
+The document was originally created by Yurii Chudinov and Bohdan Snisar. 
 
 \printbibliography%
 \end{document}
