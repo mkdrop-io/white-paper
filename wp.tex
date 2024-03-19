@@ -74,10 +74,10 @@
 \section{Introduction}
 
 The rapidly expanding cryptocurrency sector relies heavily on effective token distribution,
-crucial for engaging and maintaining community support. This white paper introduces an innovative 
+crucial for engaging and maintaining community support. \cite{ziegler2023navigating} This white paper introduces an innovative 
 platform designed to optimize token distribution processes, enhance security, and foster authentic 
 community growth. Token distribution, essential for allocating digital assets to stakeholders like investors, 
-team members, and users, has evolved to reflect the dynamic and complex nature of the cryptocurrency world.
+team members, and users, has evolved to reflect the dynamic and complex nature of the cryptocurrency world. \cite{Fan_2023}
 
 \begin{description}
   \item[Initial Coin Offerings (ICOs)]
@@ -112,7 +112,7 @@ team members, and users, has evolved to reflect the dynamic and complex nature o
 In the ever-evolving landscape of cryptocurrency ventures, the implementation of token vesting schedules is 
 a crucial factor that requires thoughtful planning. Once these schedules are embedded in smart contracts, 
 they become permanent. This permanence guarantees transparency and fosters trust, but it also adds a degree 
-of inflexibility. This can be particularly problematic for projects that are still refining their strategies.
+of inflexibility. \cite{liu2022fighting} This can be particularly problematic for projects that are still refining their strategies. \cite{messias2023airdrops}
 
 \begin{description}
   \item[Challenges to Project Adaptability]
@@ -277,12 +277,10 @@ Architecure is consisted of several essential parts:
   on-chain operations, making it an ideal solution for scalable and user-friendly web3 applications before airdrop activity.
 
   \item[Nullifier]
-  A nullifier in our system is a cryptographic marker used to 
-  prevent duplicate claims or actions. When a user claims a token,
-  the system generates a unique nullifier as SHA-256 from a hand-print proof. When a user claims a token, their proof is hashed and added to the Merkle tree.
-  This ensures each action, like a token claim, is unique and not repeatable,
-  maintaining  the system's integrity and preventing fraud. 
-  It's a key element for user privacy and security, allowing action verification without revealing user identities.
+  A nullifier in our system is a cryptographic marker used to prevent duplicate claims or actions. 
+  Based on Semaphore \href{https://semaphore.pse.dev/} as a zero-knowledge protocol that allows to cast a message (endorsement in this case).
+  It's a key element for user privacy and security, allowing action verification without revealing 
+  user identities. \cite{semaphore_pse_dev}
 
   \item[Provision]
   The Provision process offers an innovative approach for companies to initiate token-related activities without needing an existing ERC-20 coin. 
